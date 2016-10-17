@@ -1,0 +1,79 @@
+<html>
+
+    <head>
+        <title> RIMAS Observer Calculators </title>
+        <script src="jquery-3.1.0.min.js"></script>
+
+    </head>
+
+
+    <body onload="myform1.reset();">
+        <h1 align=left> RIMAS Observer Calculators </h1>
+        <script src="filters.js"></script>
+    </body>
+    
+    <form action="/cgi-bin/scripts/rimas_calc.py" method="get" name="myform1" id="myform1";"><div>
+        <p><b>Calculators:</b><br>
+    
+        <input type="radio" name="mode" value="L" checked> Limiting magnitude calculator <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Exposure time (s): <input type="number" name="L_exptime" value="60" min="0"><br>
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            S/N ratio:  <input type="number" name="L_sn" value="10" min="0"><br> 
+            	
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Instrument Mode: 
+            <select name="L_mode" id="L_mode" size="1" 
+            onchange="setOptions(document.myform1.L_mode.options[document.myform1.L_mode.selectedIndex].value,
+            document.myform1.L_filt);">
+                <option selected="selected" value="0">Photometry</option>
+                <option value="30">Low-Res Spectroscopy (R~30)</option>
+                <option value="4000">High-Res Spectroscopy (R~4000)</option>
+            </select><br />
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Filter: 
+            <select name="L_filt" size="1" id="L_filt">
+  		        <option selected>Y</option>
+  		        <option>J</option>
+  		        <option>H</option>
+  		        <option>K</option>   
+            </select>  <br>
+
+        <input type="radio" name="mode" value="E"> Exposure time calculator <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            AB Magnitude: <input type="number" name="E_mag" value="20"><br>
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            S/N ratio:  <input type="text" name="E_sn" value="10" min=0><br> 
+            	
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Instrument Mode: 
+            <select name="E_mode" id="E_mode" size="1"
+            onchange="setOptions(document.myform1.E_mode.options[document.myform1.E_mode.selectedIndex].value,
+            document.myform1.E_filt);">
+                <option selected="selected" value="0">Photometry</option>
+                <option value="30">Low-Res Spectroscopy (R~30)</option>
+                <option value="4000">High-Res Spectroscopy (R~4000)</option>
+            </select><br />
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Filter: 
+            <select name="E_filt" size="1" id="E_filt">
+  		        <option selected>Y</option>
+  		        <option>J</option>
+  		        <option>H</option>
+  		        <option>K</option>   
+            </select>
+        </div>
+      
+        <br>       
+        <input type="submit" value="Submit">
+        
+    </form>
+
+<br>
+<br>
+Created by Vicki Toy
+</html>
